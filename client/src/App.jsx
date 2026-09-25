@@ -14,6 +14,8 @@ const companies = [
   'IBM',
 ]
 
+const API_BASE_URL = 'https://s-registration-1.onrender.com'
+
 const initialForm = {
   studentName: '',
   rollNumber: '',
@@ -101,7 +103,7 @@ function App() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/students')
+        const response = await fetch(`${API_BASE_URL}/api/students`)
 
         if (!response.ok) {
           return
@@ -139,7 +141,7 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch(`${API_BASE_URL}/api/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
